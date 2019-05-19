@@ -3,8 +3,13 @@ From: ubuntu:18.04
 
 %runscript
 
-    exec /root.entrypoint.sh 
+    set -e
+    source /usr/local/root-6.16.00/bin/thisroot.sh
+    exec "$@"
 
+%environment
+    ROOT_VERSION=6.16.00
+    
 %post
  
     apt-get update
