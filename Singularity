@@ -31,9 +31,7 @@ From: ubuntu:18.04
         cmake -DCMAKE_INSTALL_PREFIX=/usr/local/root-6.16.00 -P cmake_install.cmake &&\
         cd .. && rm -r root-build && rm -r root-6.16.00 
 
-    cp ./root.entrypoint.sh /
-    chmod +x /root.entrypoint.sh
-
+    
 %labels
     Author Florian Mentzel
     Email Florian.Mentzel@tu-dortmund.de
