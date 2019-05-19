@@ -8,8 +8,7 @@ From: ubuntu:18.04
     exec "$@"
 
 %environment
-    ROOT_VERSION=6.16.00
-    
+
 %post
  
     apt-get update
@@ -23,8 +22,8 @@ From: ubuntu:18.04
                     libldap2-dev python-dev libxml2-dev libkrb5-dev \
                     libgsl0-dev libqt4-dev 
 
-    wget https://root.cern.ch/download/root_v$ROOT_VERSION.source.tar.gz &&\
-        tar -zxf root_v$ROOT_VERSION.source.tar.gz &&\
+    wget https://root.cern.ch/download/root_v6.16.00.source.tar.gz &&\
+        tar -zxf root_v6.16.00.source.tar.gz &&\
         rm root_v6.16.00.source.tar.gz &&\
         mkdir root-build && cd root-build &&\
         cmake ../root-6.16.00 &&\
