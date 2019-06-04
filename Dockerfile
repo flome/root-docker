@@ -17,7 +17,7 @@ RUN wget https://root.cern.ch/download/root_v$ROOT_VERSION.source.tar.gz &&\
     rm root_v6.16.00.source.tar.gz &&\
     mkdir root-build && cd root-build &&\
     cmake ../root-6.16.00 &&\
-    cmake --build . --target install -- -j4 &&\
+    cmake --build . -- -j4 &&\
     cmake -DCMAKE_INSTALL_PREFIX=/usr/local/root-6.16.00 -P cmake_install.cmake &&\
     cd .. && rm -r root-build && rm -r root-6.16.00 
 
