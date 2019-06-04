@@ -7,7 +7,7 @@ You can build the container yourself using the Dockerfile or pull the image from
 
 Run the container using
 ```
-docker run -it --name root6 smflment/root-docker:6-16 bash
+docker run -it --name root6 smflment/cern-root:6-16 bash
 ```
 If you want the container to be removed after exit, add the ```--rm``` option.
 
@@ -17,6 +17,6 @@ docker run -it --rm --ipc=host --net=host \
            -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v "$HOME/.Xauthority:/root/.Xauthority:rw"  \
            --name root6 \
-           smflment/root-docker:6-16 bash
+           smflment/cern-root:6-16 bash
 ```
 Or you need to start the container and connect to it using ```ssh -Y```
