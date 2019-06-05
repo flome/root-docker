@@ -5,7 +5,18 @@ From: ubuntu:18.04
 
     set -e
     source /usr/local/root-6.16.00/bin/thisroot.sh
-    exec "$@"
+
+    echo " |--------------------------------------------------------| "
+    echo " |                                                        | "
+    echo " |--  Welcome to the ROOT 6.16.00 Singularity container --| "
+    echo " |                                                        | "
+    echo " |--------------------------------------------------------| "
+
+    if [[ ! -z "$@" ]]; then
+        exec "$@"
+    fi
+    exec bash --rcfile <(echo "PS1='<Singularity: $SINGULARITY_CONTAINER> \u@\h:\w\$ ' ") -i
+
 
 %environment
 
@@ -27,7 +38,7 @@ From: ubuntu:18.04
         rm root_v6.16.00.source.tar.gz &&\
         mkdir root-build && cd root-build &&\
         cmake ../root-6.16.00 &&\
-        cmake --build . --target install -- -j4 &&\
+        cmake --build . -- -j4 &&\
         cmake -DCMAKE_INSTALL_PREFIX=/usr/local/root-6.16.00 -P cmake_install.cmake &&\
         cd .. && rm -r root-build && rm -r root-6.16.00 
 
