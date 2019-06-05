@@ -14,9 +14,9 @@ From: ubuntu:18.04
 
     if [[ ! -z "$@" ]]; then
         exec "$@"
+    else
+        exec bash --rcfile <(echo "PS1='<Singularity: $SINGULARITY_CONTAINER> \u@\h:\w\$ ' ") -i
     fi
-    exec bash --rcfile <(echo "PS1='<Singularity: $SINGULARITY_CONTAINER> \u@\h:\w\$ ' ") -i
-
 
 %environment
 
