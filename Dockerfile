@@ -14,12 +14,12 @@ RUN apt-get install -y wget git dpkg-dev cmake g++ \
 WORKDIR /tmp
 RUN wget https://root.cern.ch/download/root_v$ROOT_VERSION.source.tar.gz &&\
     tar -zxf root_v$ROOT_VERSION.source.tar.gz &&\
-    rm root_v6.16.00.source.tar.gz &&\
+    rm root_v$ROOT_VERSION.source.tar.gz &&\
     mkdir root-build && cd root-build &&\
-    cmake ../root-6.16.00 &&\
+    cmake ../root-$ROOT_VERSION &&\
     cmake --build . -- -j4 &&\
-    cmake -DCMAKE_INSTALL_PREFIX=/usr/local/root-6.16.00 -P cmake_install.cmake &&\
-    cd .. && rm -r root-build && rm -r root-6.16.00 
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local/root-$ROOT_VERSION -P cmake_install.cmake &&\
+    cd .. && rm -r root-build && rm -r root-$ROOT_VERSION
 
 WORKDIR /tmp
 
